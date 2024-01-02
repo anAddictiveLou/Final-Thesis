@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/MyEngine.dir/main.cpp.o CMakeFiles/MyEngine.dir/src/core.cpp.o CMakeFiles/MyEngine.dir/src/byte.cpp.o -o MyEngine  hidapi/src/linux/libhidapi-hidraw.a /usr/lib/x86_64-linux-gnu/libudev.so 

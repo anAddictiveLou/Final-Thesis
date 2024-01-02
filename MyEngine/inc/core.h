@@ -8,21 +8,26 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
-#include <stdbool.h>
-#include <getopt.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <sys/types.h>
 
 #include "hidapi.h"
+#include "byte.h"
 
 #define ME_UNKNOWN -2
 #define ME_SUCCESS 0
 #define ME_FAILURE -1
 #define ME_SIZE 1024
+#define VID 0x0483
+#define PID 0x5762
 
 #if defined(_WIN32)
     #include <Windows.h>
-    #define AES_CMD "MyEngine/AESCrypt_console_v310_x64/AESCrypt_console_v310_x64/aescrypt.exe"
+    #define AES_CMD "MyEngine/aes-win/AESCrypt_console_v310_x64/aescrypt.exe"
     #define SHOW_ERROR_MESSAGE(message) MessageBox(NULL, TEXT(message), TEXT("Error"), MB_OK | MB_ICONERROR)
 #else
+    #define AES_CMD "aescrypt"
     #define SHOW_ERROR_MESSAGE(message) system("zenity --error --text='" message "'")
 #endif
 
@@ -54,7 +59,7 @@ int32_t initHandle();
 int32_t intergrityVerifyHandle();
 int32_t mutualAuthenticationHandle();
 int32_t keyExchangeHandle();
-int32_t decryptHandle(char* fileAES);
+int32_t decryptHandle(char* fileAES, char* password);
 int32_t startAppHandle();
 int32_t appRunningHandle();
 int32_t abnormalBehaviorHandle();

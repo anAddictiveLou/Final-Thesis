@@ -11,7 +11,7 @@ include_directories(src inc)  # Add the 'inc' directory
 # my_application/CMakeLists.txt
 project(MyEngine)
 
-add_executable(MyEngine main.cpp src/core.cpp)
+add_executable(MyEngine main.cpp src/core.cpp src/byte.cpp)
 
 # NOTE: no `find_package` is required, since HIDAPI targets are already a part of the project tree
 target_link_libraries(MyEngine PRIVATE hidapi::hidapi)

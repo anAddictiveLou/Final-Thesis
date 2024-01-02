@@ -1,0 +1,89 @@
+.TH AESCRYPT 1  "January 30, 2022" "AES Crypt Tools" "User Commands"
+
+.SH NAME
+
+.B aescrypt
+\- AES Crypt encrypts and decrypts files using the Advanced Encryption Standard
+(AES).
+
+.SH SYNOPSIS
+
+.SY
+.B aescrypt
+{\ \-e\ |\ \-d\ }
+[\ {\ \-p\ <password>\ |\ \-k\ <keyfile>\ }\ ]
+[\ \-o\ <output\ filename>\ ]\ [\ \fI<file>\ ...\fR\ ]
+.YS
+
+.SH DESCRIPTION
+
+.B aescrypt
+is an advanced file encryption utility that provides a means to encrypt files
+using the Advanced Encryption Standard (AES) algorithm.
+
+.B aescrypt
+encrypts files with a supplied password and creates an encrypted version of the
+file in the specified output file by the '\-o' switch.  If no output file is
+specified, then the file will be written to a file of the same name with the
+extention '.aes' appended.
+
+If the output file is not specified, the default output file will be the
+original input filename with ".aes" appended to the end.
+
+One may encrypt or decrypt multiple files by specifying each of the filenames
+as part of the command-line options.  The special filename "\-" is allowed
+and indicated standard input.
+
+.SH OPTIONS
+
+.B \-d
+.RS
+Decrypt the file.
+.RE
+
+.B \-e
+.RS
+Encrypt the file.
+.RE
+
+.B \-p <password>
+.RS
+Password to use to encrypt or decrypt the specified file.  If not provided via
+this option and the "\-k" flag is not provided, the user will be prompted
+for the password.
+.RE
+
+.B \-k\ <keyfile>
+.RS
+A keyfile to use to encrypt or decrypt files, as opposed to using a password.
+.RE
+
+.B \-o <output\ filename>
+.RS
+The name of the output file to produce, which may be "\-" to indicate standard
+out.  If not specified, the output filename will be the name of the input
+file with ".aes" appended.  If the input file is standard input, the output
+will be assumed to be standard output if "\-o" is not specified.
+.RE
+
+.SH AUTHOR
+
+AES Crypt was written by Paul E. Jones <paulej@packetizer.com>.  Additionally,
+several other people have contributed to the Linux source code, notably
+Glenn Washburn <crass@berlios.de> and Mauro Gilardi <galvao.m@gmail.com>.
+
+.SH SEE ALSO
+
+For more complete documentation or to download the most recent version of the
+software, visit https://www.aescrypt.com/.
+
+.SH COPYRIGHT
+
+This software is licensed as "freeware."  Permission to distribute this
+software in source and binary forms is hereby granted without a fee.  THIS
+SOFTWARE IS PROVIDED 'AS IS' AND WITHOUT ANY EXPRESSED OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS FOR A PARTICULAR PURPOSE.  THE AUTHOR SHALL NOT BE HELD LIABLE FOR ANY
+DAMAGES RESULTING FROM THE USE OF THIS SOFTWARE, EITHER DIRECTLY OR INDIRECTLY,
+INCLUDING, BUT NOT LIMITED TO, LOSS OF DATA OR DATA BEING RENDERED INACCURATE.
+
